@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #links span:nth-child(n+2) {
+            position: relative;
+            margin-left: 3px;
+            padding-left: 5px;
+        }
+        
+        #links span:nth-child(n)::after {
+            position: absolsute
+            left: 0;
+            top: 3px;
+            content: "";
+            width: 1px;
+            height: 15px;
+            background-color: black;
+        }
+
+        vr {
+            margin-left: 5px;
+            border-left: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>트렌드 분석 애플리케이션</h1>
+    <div id='links' style="display: flex;">
+        <span>
+            <a href="{% url "trends:keyword" %}">키워드 추가</a>
+        </span>
+        <vr></vr>
+        <span>
+            <a href="{% url "trends:crawling" %}">크롤링</a>
+        </span>
+        <vr></vr>
+        <span>
+            <a href="#">히스토그램</a>
+        </span>
+        <vr></vr>
+        <span>
+            <a href="#">지난 1년 크롤링</a>
+        </span>
+        <vr></vr>
+    </div>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
